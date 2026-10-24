@@ -1,0 +1,222 @@
+{
+  "name": "demo",
+  "configurations": [
+    {
+      "name": "Debug",
+      "type": "Executable",
+      "output_filename": "demo",
+      "mcu": "STM32G030F6P6",
+      "toolchain_type": "GCC",
+      "toolchain_prefix": "",
+      "sources": [
+        {
+          "path": "Src/syscall.c"
+        },
+        {
+          "path": "Src/sysmem.c"
+        },
+        {
+          "path": "Src/main.c"
+        },
+        {
+          "path": "Src/startup_stm32g030xx.S"
+        }
+      ],
+      "tools": [
+        {
+          "type": "c_assembler",
+          "flags": [
+            "-fdata-sections",
+            "-ffunction-sections",
+            "-std=gnu11",
+            "-Wl,--gc-sections",
+            "-Wno-comment",
+            "-fstack-usage",
+            "-Wall",
+            "-Wextra",
+            "-Wpedantic",
+            "-Wno-unused-parameter",
+            "-O0",
+            "-g3",
+            "-ggdb",
+            "-IInc",
+            "-DRTE_DEVICE_STARTUP_STM32G0XX",
+            "-DDEBUG",
+            "-x",
+            "assembler-with-cpp",
+            "-MMD",
+            "-MP"
+          ]
+        },
+        {
+          "type": "c_compiler",
+          "flags": [
+            "-fdata-sections",
+            "-ffunction-sections",
+            "-std=gnu11",
+            "-Wl,--gc-sections",
+            "-Wno-comment",
+            "-fstack-usage",
+            "-Wall",
+            "-Wextra",
+            "-Wpedantic",
+            "-Wno-unused-parameter",
+            "-O0",
+            "-g3",
+            "-ggdb",
+            "-IInc",
+            "-DRTE_DEVICE_STARTUP_STM32G0XX",
+            "-DDEBUG"
+          ]
+        },
+        {
+          "type": "cpp_compiler",
+          "flags": [
+            "-fdata-sections",
+            "-ffunction-sections",
+            "-std=gnu11",
+            "-Wl,--gc-sections",
+            "-Wno-comment",
+            "-fstack-usage",
+            "-Wall",
+            "-Wextra",
+            "-Wpedantic",
+            "-Wno-unused-parameter",
+            "-O0",
+            "-g3",
+            "-ggdb",
+            "-IInc",
+            "-DRTE_DEVICE_STARTUP_STM32G0XX",
+            "-DDEBUG",
+            "-fno-rtti",
+            "-fno-exceptions",
+            "-fno-threadsafe-statics"
+          ]
+        },
+        {
+          "type": "c_linker",
+          "flags": [
+            "-Tstm32g030x6_flash.ld",
+            "-Wl,-Map=demo.map",
+            "-u",
+            "_printf_float",
+            "--specs=nosys.specs",
+            "-Wl,--start-group",
+            "-lc",
+            "-lm",
+            "-lstdc++",
+            "-lsupc++",
+            "-Wl,--end-group",
+            "-Wl,-z,max-page-size=8",
+            "-Wl,--print-memory-usage"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Release",
+      "type": "Executable",
+      "output_filename": "demo",
+      "mcu": "STM32G030F6P6",
+      "toolchain_type": "GCC",
+      "toolchain_prefix": "",
+      "sources": [
+        {
+          "path": "Src/syscall.c"
+        },
+        {
+          "path": "Src/sysmem.c"
+        },
+        {
+          "path": "Src/main.c"
+        },
+        {
+          "path": "Src/startup_stm32g030xx.S"
+        }
+      ],
+      "tools": [
+        {
+          "type": "c_assembler",
+          "flags": [
+            "-fdata-sections",
+            "-ffunction-sections",
+            "-std=gnu11",
+            "-Wl,--gc-sections",
+            "-Wno-comment",
+            "-fstack-usage",
+            "-Wall",
+            "-Wextra",
+            "-Wpedantic",
+            "-Wno-unused-parameter",
+            "-Os",
+            "-IInc",
+            "-DRTE_DEVICE_STARTUP_STM32G0XX",
+            "-x",
+            "assembler-with-cpp",
+            "-MMD",
+            "-MP"
+          ]
+        },
+        {
+          "type": "c_compiler",
+          "flags": [
+            "-fdata-sections",
+            "-ffunction-sections",
+            "-std=gnu11",
+            "-Wl,--gc-sections",
+            "-Wno-comment",
+            "-fstack-usage",
+            "-Wall",
+            "-Wextra",
+            "-Wpedantic",
+            "-Wno-unused-parameter",
+            "-Os",
+            "-IInc",
+            "-DRTE_DEVICE_STARTUP_STM32G0XX"
+          ]
+        },
+        {
+          "type": "cpp_compiler",
+          "flags": [
+            "-fdata-sections",
+            "-ffunction-sections",
+            "-std=gnu11",
+            "-Wl,--gc-sections",
+            "-Wno-comment",
+            "-fstack-usage",
+            "-Wall",
+            "-Wextra",
+            "-Wpedantic",
+            "-Wno-unused-parameter",
+            "-Os",
+            "-IInc",
+            "-DRTE_DEVICE_STARTUP_STM32G0XX",
+            "-fno-rtti",
+            "-fno-exceptions",
+            "-fno-threadsafe-statics"
+          ]
+        },
+        {
+          "type": "c_linker",
+          "flags": [
+            "-Tstm32g030x6_flash.ld",
+            "-Wl,-Map=demo.map",
+            "-u",
+            "_printf_float",
+            "--specs=nosys.specs",
+            "-Wl,--start-group",
+            "-lc",
+            "-lm",
+            "-lstdc++",
+            "-lsupc++",
+            "-Wl,--end-group",
+            "-Wl,-z,max-page-size=8",
+            "-Wl,--print-memory-usage"
+          ]
+        }
+      ]
+    }
+  ],
+  "source_ide": "Empty",
+  "path": "C:\\Users\\WALTON\\AppData\\Local\\Temp\\stm32cube_for_vscode_empty_project_uOTsOE"
+}

@@ -1,0 +1,31 @@
+{
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "Flash Program",
+            "type": "shell",
+            "command": "STM32_Programmer_CLI",
+            "args": [
+                "-c",
+                "port=SWD",
+                "-w",
+                "${command:cmake.launchTargetPath}",
+                "-rst"
+            ],
+            "problemMatcher": []
+        },
+        
+        {
+            "label": "Erase Flash",
+            "type": "shell",
+            "command": "STM32_Programmer_CLI",
+            "args": [
+                "-c",
+                "port=SWD",
+                "-e",
+                "all"
+            ],
+            "problemMatcher": []
+        }
+    ]
+}
