@@ -1,10 +1,10 @@
 {
-  "name": "demo",
+  "name": "stm32g030_bootloader",
   "configurations": [
     {
       "name": "Debug",
       "type": "Executable",
-      "output_filename": "demo",
+      "output_filename": "stm32g030_bootloader",
       "mcu": "STM32G030F6P6",
       "toolchain_type": "GCC",
       "toolchain_prefix": "",
@@ -97,7 +97,7 @@
           "type": "c_linker",
           "flags": [
             "-Tstm32g030x6_flash.ld",
-            "-Wl,-Map=demo.map",
+            "-Wl,-Map=stm32g030_bootloader.map",
             "-u",
             "_printf_float",
             "--specs=nosys.specs",
@@ -116,7 +116,7 @@
     {
       "name": "Release",
       "type": "Executable",
-      "output_filename": "demo",
+      "output_filename": "stm32g030_bootloader",
       "mcu": "STM32G030F6P6",
       "toolchain_type": "GCC",
       "toolchain_prefix": "",
@@ -200,7 +200,7 @@
           "type": "c_linker",
           "flags": [
             "-Tstm32g030x6_flash.ld",
-            "-Wl,-Map=demo.map",
+            "-Wl,-Map=stm32g030_bootloader.map",
             "-u",
             "_printf_float",
             "--specs=nosys.specs",

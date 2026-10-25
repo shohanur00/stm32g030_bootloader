@@ -16,10 +16,18 @@
  ******************************************************************************
  */
 
-#include <stdint.h>
+#include "app.h"
+
 
 int main(void)
 {
+    App_Setup();
+
     /* Loop forever */
-	for(;;);
+
+	while (1)
+    {
+        App_Loop();
+
+    }
 }

@@ -21,7 +21,32 @@ enable_language(C ASM)
 set(PROJECT_NAME stm32g030_bootloader)
  
 # Create an executable object type
-add_executable(${PROJECT_NAME})
+add_executable(${PROJECT_NAME}
+  
+  App/app.c
+  Drivers/gpio/gpio.c
+  Drivers/gpio/gpio_hal.c
+  Drivers/timecore/timecore_hal.c
+  Drivers/timecore/timecore.c
+  Drivers/led/led.c
+  Drivers/systemclock/systemclock.c
+  Drivers/uart/uart_driver.c
+  HAL/uart/uart_hal.c
+  # Services/logger/core/logger.c
+  # Services/logger/core/logger_hal.c
+  # Services/logger/backends/uart/logger_uart.c
+  Libraries/containers/ringbuffer/ring_buffer.c
+  Libraries/crc/crc.c
+  Bootloader/core/bootloader.c
+  Bootloader/protocol/bl_protocol.c
+  Bootloader/transport/bl_transport.c
+  Bootloader/transport/uart/bootloader_uart.c
+  Bootloader/flash/bl_flash.c
+  Bootloader/bootloader_app.c
+  Bootloader/metadata/bl_metadata.c
+  Bootloader/jump/bl_jump.c
+
+ )
 
 # Include additional CMake files for flags, components, and files
 include(${CMAKE_CURRENT_SOURCE_DIR}/cmake/flags.cmake)
@@ -33,9 +58,54 @@ target_sources(${PROJECT_NAME} PRIVATE
   # User defined sources
 )
 
-# Add include directories
+# =============================================================================
+# Include Directories
+# =============================================================================
+
 target_include_directories(${PROJECT_NAME} PRIVATE
-  # User defined include directories
+
+    # -------------------------------------------------------------------------
+    # Application / Drivers
+    # -------------------------------------------------------------------------
+
+    ${CMAKE_CURRENT_SOURCE_DIR}/App
+    ${CMAKE_CURRENT_SOURCE_DIR}/Drivers
+    ${CMAKE_CURRENT_SOURCE_DIR}/BSP
+
+
+    # -------------------------------------------------------------------------
+    # Services
+    # -------------------------------------------------------------------------
+
+    ${CMAKE_CURRENT_SOURCE_DIR}/Services
+
+
+    # -------------------------------------------------------------------------
+    # Configuration
+    # -------------------------------------------------------------------------
+
+    ${CMAKE_CURRENT_SOURCE_DIR}/Config
+
+
+    # -------------------------------------------------------------------------
+    # Libraries
+    # -------------------------------------------------------------------------
+
+    ${CMAKE_CURRENT_SOURCE_DIR}/Libraries
+
+ 
+    # -------------------------------------------------------------------------
+    # HAL
+    # -------------------------------------------------------------------------
+
+    ${CMAKE_CURRENT_SOURCE_DIR}/HAL
+
+    # -------------------------------------------------------------------------
+    # Bootloader
+    # -------------------------------------------------------------------------
+
+    ${CMAKE_CURRENT_SOURCE_DIR}/Bootloader
+
 )
 
 # Compiler options
@@ -61,4 +131,34 @@ target_link_directories(${PROJECT_NAME} PRIVATE
 # Add additional linker libraries
 target_link_libraries(${PROJECT_NAME} PRIVATE
   # Add additional linker libraries here
+)
+
+ 
+
+# =============================================================================
+# Linker Script Configuration
+#
+# One linker template is used for all configurations.
+# CMake generates the actual linker script inside the build directory.
+# =============================================================================
+
+set(LINKER_SCRIPT
+    ${CMAKE_CURRENT_SOURCE_DIR}/stm32g030x6_flash.ld
+)
+
+configure_file(
+    ${LINKER_SCRIPT}
+    ${CMAKE_BINARY_DIR}/stm32g030x6_flash.ld
+    @ONLY
+)
+
+
+# =============================================================================
+# Linker Options
+# =============================================================================
+
+target_link_options(${PROJECT_NAME} PRIVATE
+
+    "-T${CMAKE_BINARY_DIR}/stm32g030x6_flash.ld"
+
 )
