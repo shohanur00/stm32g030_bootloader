@@ -66,9 +66,9 @@ static void TimeCore_HAL_ConfigureTimer(void)
     /*
      * Timer counter frequency:
      *
-     *      1 MHz = 1 us resolution
+     *      1 MHz = 1 us resolution 
      */
-
+ 
     prescaler =
         (timer_clock / TIMECORE_COUNTER_FREQ_HZ) - 1UL;
 
@@ -84,7 +84,7 @@ static void TimeCore_HAL_ConfigureTimer(void)
      *      1 update event = 1 ms
      */
 
-    TIMECORE_HAL_TIMER_INSTANCE->ARR =
+    TIMECORE_HAL_TIMER_INSTANCE->ARR = 
         (TIMECORE_COUNTER_FREQ_HZ /
          TIMECORE_TICK_FREQ_HZ) - 1UL;
 
