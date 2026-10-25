@@ -111,6 +111,7 @@ target_include_directories(${PROJECT_NAME} PRIVATE
 # Compiler options
 target_compile_options(${PROJECT_NAME} PRIVATE
   # User defined compiler options
+  $<$<COMPILE_LANGUAGE:C>:-flto>
 )
 
 # Add additional defined symbols
@@ -121,6 +122,7 @@ target_compile_definitions(${PROJECT_NAME} PRIVATE
 # Linker options
 target_link_options(${PROJECT_NAME} PRIVATE 
   # User defined linker options
+  -flto
 )
 
 # Add additional linker search directories
