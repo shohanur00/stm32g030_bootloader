@@ -46,7 +46,7 @@ static const GPIO_InitEntry_t gpio_init_table[] =
             .pull               = GPIO_PULL_UP,
             .speed              = GPIO_SPEED_HIGH,
             .output_type        = GPIO_OUTPUT_PUSH_PULL,
-            .alternate_function = 7U, /* AF7 for USART3_RX */
+            .alternate_function = 0U, /* AF0 for USART1_RX */
             .initial_state      = GPIO_LOW,
         },
     },
@@ -58,7 +58,7 @@ static const GPIO_InitEntry_t gpio_init_table[] =
             .pull               = GPIO_PULL_UP,
             .speed              = GPIO_SPEED_HIGH,
             .output_type        = GPIO_OUTPUT_PUSH_PULL,
-            .alternate_function = 7U, /* AF7 for USART3_TX */
+            .alternate_function = 0U, /* AF0 for USART1_TX */
             .initial_state      = GPIO_LOW,
         },
     },

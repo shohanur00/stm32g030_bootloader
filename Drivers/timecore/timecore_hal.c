@@ -292,6 +292,14 @@ void TIM3_IRQHandler(void)
 }
 
 
+#elif (TIMECORE_HAL_TIMER == TIMECORE_HAL_TIMER_TIM14)
+
+void TIM14_IRQHandler(void)
+{
+    TimeCore_HAL_IRQHandler();
+}
+
+
 #elif (TIMECORE_HAL_TIMER == TIMECORE_HAL_TIMER_TIM4)
 
 void TIM4_IRQHandler(void)

@@ -12,6 +12,7 @@
 #include "logger/frontend/logger.h"
 #include "jump/bl_jump.h"
 #include "core/bootloader.h"
+#include "transport/uart/bootloader_uart.h"
 
 
 
@@ -257,7 +258,7 @@ void Bootloader_App_Loop(void)
         GPIO_Toggle(GPIO_LED);
     }
 
-
+    // Bootloader_UART_Write("Hello \n\r",8);
     /* ------------------------------------------------------------------------
      * Time Services
      * ---------------------------------------------------------------------- */
