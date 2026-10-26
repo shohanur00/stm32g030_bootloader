@@ -4,7 +4,7 @@
         {
             "label": "Flash Program",
             "type": "shell",
-            "command": "STM32_Programmer_CLI",
+            "command": "C:\\Program Files\\STMicroelectronics\\STM32Cube\\STM32CubeProgrammer\\bin\\STM32_Programmer_CLI.exe",
             "args": [
                 "-c",
                 "port=SWD",
@@ -18,7 +18,7 @@
         {
             "label": "Erase Flash",
             "type": "shell",
-            "command": "STM32_Programmer_CLI",
+            "command": "C:\\Program Files\\STMicroelectronics\\STM32Cube\\STM32CubeProgrammer\\bin\\STM32_Programmer_CLI.exe",
             "args": [
                 "-c",
                 "port=SWD",
