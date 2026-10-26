@@ -16,29 +16,29 @@
 
 
 /* ============================================================================
- * Bootloader Memory: 8 KB
+ * Bootloader Memory: 6 KB (3 pages)
  * ========================================================================== */
 
 #define BL_BOOTLOADER_START_ADDRESS     (0x08000000UL)
-#define BL_BOOTLOADER_SIZE              (8UL * 1024UL)
+#define BL_BOOTLOADER_SIZE              (6UL * 1024UL)
 
 #define BL_BOOTLOADER_END_ADDRESS       \
     (BL_BOOTLOADER_START_ADDRESS + BL_BOOTLOADER_SIZE - 1UL)
 
 
 /* ============================================================================
- * Main Application Memory: 22 KB
+ * Main Application Memory: 24 KB (12 pages)
  * ========================================================================== */
 
-#define BL_APP_START_ADDRESS            (0x08002000UL)
-#define BL_APP_SIZE                     (22UL * 1024UL)
+#define BL_APP_START_ADDRESS            (0x08001800UL)
+#define BL_APP_SIZE                     (24UL * 1024UL)
 
 #define BL_APP_END_ADDRESS              \
     (BL_APP_START_ADDRESS + BL_APP_SIZE - 1UL)
 
 
 /* ============================================================================
- * Bootloader Metadata: 2 KB
+ * Bootloader Metadata: 2 KB (1 page)
  * ========================================================================== */
 
 #define BL_METADATA_START_ADDRESS       (0x08007800UL)
