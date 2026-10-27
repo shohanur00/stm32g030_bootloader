@@ -90,22 +90,15 @@ typedef enum
 
     BL_CMD_SYNC_OBSERVED                = 0x20U,
 
-    BL_CMD_FW_UPDATE_REQ                = 0x31U,
-    BL_CMD_FW_UPDATE_RES                = 0x37U,
-
     BL_CMD_DEVICE_ID_REQ                = 0x3CU,
     BL_CMD_DEVICE_ID_RES                = 0x3FU,
     BL_CMD_DEVICE_ID_CONFIRM            = 0x3D, 
 
     BL_CMD_FW_SIZE                      = 0x42U,
-    BL_CMD_FW_OVER_SIZE                 = 0x45U,
 
     BL_CMD_SET_APP_START_ADDRESS        = 0x4AU,
-    BL_CMD_APP_START_ADDRESS_ERROR      = 0x4BU,
 
     BL_CMD_FW_DATA                      = 0x50U,
-
-    BL_CMD_READY_FOR_DATA               = 0x48U,
 
     BL_CMD_UPDATE_SUCCESSFUL            = 0x54U,
 

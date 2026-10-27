@@ -26,7 +26,7 @@ extern "C" {
  * -------------------------------------------------------------------------- */
 
 #ifndef BL_PROTOCOL_TEST_VALID_COMMAND
-#define BL_PROTOCOL_TEST_VALID_COMMAND          BL_CMD_FW_UPDATE_REQ
+#define BL_PROTOCOL_TEST_VALID_COMMAND          BL_CMD_SYNC_OBSERVED
 #endif
 
 #ifndef BL_PROTOCOL_TEST_INVALID_COMMAND
@@ -64,13 +64,9 @@ extern "C" {
 #define BL_PROTOCOL_TEST_COMMAND_LIST           \
 {                                               \
     BL_CMD_SYNC_OBSERVED,                       \
-    BL_CMD_FW_UPDATE_REQ,                       \
-    BL_CMD_FW_UPDATE_RES,                       \
     BL_CMD_DEVICE_ID_REQ,                       \
     BL_CMD_DEVICE_ID_RES,                       \
     BL_CMD_FW_SIZE,                             \
-    BL_CMD_FW_OVER_SIZE,                        \
-    BL_CMD_READY_FOR_DATA,                      \
     BL_CMD_UPDATE_SUCCESSFUL,                   \
     BL_CMD_ACK,                                 \
     BL_CMD_NACK,                                \
