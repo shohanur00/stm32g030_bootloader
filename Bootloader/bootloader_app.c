@@ -222,7 +222,7 @@ void Bootloader_App_Loop(void)
 
             GPIO_Write(
                 GPIO_LED,
-                LOW
+                HIGH
             );
             TimeCore_ResumeTimer(timeout);
         }

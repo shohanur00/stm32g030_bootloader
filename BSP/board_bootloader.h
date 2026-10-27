@@ -39,7 +39,7 @@
  * ========================================================================== */
 
 #define BL_STARTUP_WAIT_TIME              5000U
-#define BL_PROGRAMMING_TIMEOUT           20000U
+#define BL_PROGRAMMING_TIMEOUT           50000U
 
 
 

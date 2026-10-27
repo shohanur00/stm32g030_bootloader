@@ -164,3 +164,16 @@ target_link_options(${PROJECT_NAME} PRIVATE
     "-T${CMAKE_BINARY_DIR}/stm32g030x6_flash.ld"
 
 )
+
+# Generate BIN and HEX files after linking the ELF
+add_custom_command(TARGET ${CMAKE_PROJECT_NAME} POST_BUILD
+    COMMAND ${CMAKE_OBJCOPY} -O binary
+            $<TARGET_FILE:${CMAKE_PROJECT_NAME}>
+            $<TARGET_FILE_DIR:${CMAKE_PROJECT_NAME}>/${CMAKE_PROJECT_NAME}.bin
+
+    COMMAND ${CMAKE_OBJCOPY} -O ihex
+            $<TARGET_FILE:${CMAKE_PROJECT_NAME}>
+            $<TARGET_FILE_DIR:${CMAKE_PROJECT_NAME}>/${CMAKE_PROJECT_NAME}.hex
+
+    COMMENT "Generating BIN and HEX files"
+)
